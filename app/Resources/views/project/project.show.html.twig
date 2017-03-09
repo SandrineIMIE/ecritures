@@ -1,16 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>Project</h1>
+    <h1>Projet</h1>
 
     <table>
         <tbody>
+
             <tr>
-                <th>Id</th>
-                <td>{{ project.id }}</td>
-            </tr>
-            <tr>
-                <th>Title</th>
+                <th>Titre</th>
                 <td>{{ project.title }}</td>
             </tr>
             <tr>
@@ -19,14 +16,14 @@
             </tr>
             <tr>
                 <th>Statut</th>
-                <td>{% if project.statut %}Yes{% else %}No{% endif %}</td>
+                <td>{% if project.statut %}En cours{% else %}Terminé{% endif %}</td>
             </tr>
             <tr>
-                <th>Createdat</th>
+                <th>Crée le </th>
                 <td>{% if project.createdat %}{{ project.createdat|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
             <tr>
-                <th>Editedat</th>
+                <th>Modifié le </th>
                 <td>{% if project.editedat %}{{ project.editedat|date('Y-m-d H:i:s') }}{% endif %}</td>
             </tr>
         </tbody>
@@ -34,14 +31,14 @@
 
     <ul>
         <li>
-            <a href="{{ path('project_index') }}">Back to the list</a>
+            <a href="{{ path('project_index') }}">Retour  à la liste</a>
         </li>
         <li>
-            <a href="{{ path('project_edit', { 'id': project.id }) }}">Edit</a>
+            <a href="{{ path('project_edit', { 'id': project.id }) }}">Editer</a>
         </li>
         <li>
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" value="Supprimer">
             {{ form_end(delete_form) }}
         </li>
     </ul>
