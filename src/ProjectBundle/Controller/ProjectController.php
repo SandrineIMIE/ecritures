@@ -40,6 +40,7 @@ class ProjectController extends Controller
     public function newAction(Request $request)
     {
         $project = new Project();
+        $project ->setEditedat( new \DateTime());
         $form = $this->createForm('ProjectBundle\Form\ProjectType', $project);
         $form->handleRequest($request);
 
